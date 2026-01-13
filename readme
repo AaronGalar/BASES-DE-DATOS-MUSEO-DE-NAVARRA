@@ -1,0 +1,47 @@
+# 🏛️ Proyecto de Base de Datos: Museo de Navarra
+
+Este repositorio contiene el diseño, modelado e implementación de una base de datos relacional para la gestión de las colecciones del **Museo de Navarra**. [cite_start]El proyecto ha sido desarrollado como parte del módulo de Databases en el programa **Albañiles Digitales**[cite: 23, 80].
+
+## 🎯 Objetivo del Proyecto
+[cite_start]El propósito es crear un sistema robusto que permita organizar la riqueza histórica de Navarra, gestionando la relación entre autores, estilos artísticos, colecciones y la ubicación física en el museo, cumpliendo con el requisito de tener al menos 3 entidades y relaciones 1:N y N:M[cite: 82, 83].
+
+## 🚀 Cómo usar este proyecto
+
+Para replicar esta base de datos en tu entorno local, sigue estos pasos:
+
+### Pre-requisitos
+* [cite_start]Tener instalado **PostgreSQL** y **pgAdmin 4**[cite: 42].
+* (Opcional) [cite_start]**Docker** si prefieres ejecutarlo en un contenedor[cite: 53].
+
+### Paso 1: Crear la Base de Datos
+1. Abre pgAdmin y conéctate a tu servidor.
+2. [cite_start]Crea una nueva base de datos llamada `MuseoNavarra`[cite: 42].
+3. Abre la herramienta de consulta (**Query Tool**) sobre esa base de datos.
+
+### Paso 2: Ejecutar el Script SQL
+Copia y pega el contenido del archivo `script.sql` de este repositorio en la consola de comandos. Este script realizará lo siguiente:
+1. [cite_start]**Definición de Esquema:** Creará las tablas `Autor`, `Estilo`, `Coleccion`, `Sala`, `Obra` y las tablas intermedias `pertenecer` y `exponer`[cite: 85].
+2. [cite_start]**Carga de Datos:** Poblará las tablas con registros reales como la *Mano de Irulegui* y el *Retrato del Marqués de San Adrián*[cite: 86].
+
+### Paso 3: Consultar los Datos
+Una vez ejecutado el script, puedes probar las consultas incluidas al final del archivo para verificar el funcionamiento, como por ejemplo:
+* Listar obras por piso.
+* Buscar obras de un autor específico.
+* Filtrar piezas por estilo artístico (ej. Románico).
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+* **Lenguaje:** SQL (PostgreSQL).
+* [cite_start]**Entorno:** pgAdmin / Docker[cite: 42, 53].
+* [cite_start]**Conceptos:** Modelado Entidad-Relación, Normalización, Llaves Primarias/Foráneas y JOINs complejos[cite: 33, 34, 35].
+
+## 🗂️ Estructura del Modelo
+El diseño resuelve la complejidad del museo mediante:
+- **Entidades:** `Autor`, `Obra`, `Estilo`, `Colección` y `Sala`.
+- **Relaciones Muchos a Muchos (N:M):**
+    - `pertenecer`: Vincula autores con múltiples estilos.
+    - `exponer`: Gestiona colecciones en diferentes salas.
+
+---
+[cite_start]*Proyecto realizado bajo el marco de formación de Albañiles Digitales en colaboración con el Servicio Navarro de Empleo[cite: 21, 24].*
